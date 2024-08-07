@@ -1,4 +1,4 @@
-image: perconalab/everest:0.0.0
+image: percona/everest
 catalogSourceName: everest-catalog
 catalogSourceTag: latest
 telemetry: true
@@ -13,8 +13,8 @@ vmOperator:
   channel: stable-v0
 everestOperator:
   enabled: true
-  channel: fast-v0
-  version: 0.0.0
+  channel: stable-v0
+  version: 1.0.1
 namespaces:
   - name: everest
     mongodb:
