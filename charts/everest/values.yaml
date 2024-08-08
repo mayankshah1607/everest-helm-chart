@@ -1,10 +1,9 @@
-image: percona/everest
-catalogSourceName: everest-catalog
-catalogSourceTag: latest
+image: perconalab/everest
 telemetry: true
 server:
   enabled: true
 olm:
+  catalogSourceImage: perconalab/everest-catalog
   enabled: true
   namespace: everest-olm
 vmOperator:
@@ -13,7 +12,7 @@ vmOperator:
   channel: stable-v0
 everestOperator:
   enabled: true
-  channel: stable-v0
+  channel: fast-v0
 namespaces:
   - name: everest
     mongodb:

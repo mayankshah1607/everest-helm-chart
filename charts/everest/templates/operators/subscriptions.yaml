@@ -9,7 +9,7 @@ spec:
   channel: {{ $ns.mongodb.channel }}
   installPlanApproval: Manual
   name: percona-server-mongodb-operator
-  source: {{ $.Values.catalogSourceName }}
+  source: everest-catalog
   sourceNamespace: {{ $.Values.olm.namespace }}
   config:
     env:
@@ -31,7 +31,7 @@ spec:
   channel: {{ $ns.pxc.channel }}
   installPlanApproval: Manual
   name: percona-xtradb-cluster-operator
-  source: {{ $.Values.catalogSourceName }}
+  source: everest-catalog
   sourceNamespace: {{ $.Values.olm.namespace }}
   config:
     env:
@@ -53,7 +53,7 @@ spec:
   channel: {{ $ns.pg.channel }}
   installPlanApproval: Manual
   name: percona-postgresql-operator
-  source: {{ $.Values.catalogSourceName }}
+  source: everest-catalog
   sourceNamespace: {{ $.Values.olm.namespace }}
   config:
     env:

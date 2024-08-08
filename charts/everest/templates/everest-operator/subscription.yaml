@@ -7,7 +7,7 @@ spec:
   channel: {{ .Values.everestOperator.channel }}
   installPlanApproval: Manual
   name: everest-operator
-  source: {{ .Values.catalogSourceName }}
+  source: everest-catalog
   sourceNamespace: {{ .Values.olm.namespace }}
   {{- if ne .Values.everestOperator.version "" }}
   startingCSV: everest-operator.v{{ .Chart.Version }}
