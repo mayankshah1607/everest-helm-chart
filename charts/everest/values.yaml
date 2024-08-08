@@ -14,7 +14,6 @@ vmOperator:
 everestOperator:
   enabled: true
   channel: stable-v0
-  version: 1.0.1
 namespaces:
   - name: everest
     mongodb:

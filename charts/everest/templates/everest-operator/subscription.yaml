@@ -10,7 +10,7 @@ spec:
   source: {{ .Values.catalogSourceName }}
   sourceNamespace: {{ .Values.olm.namespace }}
   {{- if ne .Values.everestOperator.version "" }}
-  startingCSV: everest-operator.v{{ .Values.everestOperator.version }}
+  startingCSV: everest-operator.v{{ .Chart.Version }}
   {{- end }}
   config:
     env:
