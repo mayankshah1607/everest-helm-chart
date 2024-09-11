@@ -42,16 +42,6 @@ TEST SUITE: None
 
 This indicates that Percona Everest has been successfully deployed.
 
-#### Setting Up Percona Everest
-
-Once the installation is complete, you can forward the service port to access the Percona Everest User Interface (UI):
-
-```bash
-kubectl port-forward svc/everest 8080:8080 -n everest-system
-```
-
-You can now access the UI in your browser by navigating to `http://localhost:8080`.
-
 #### Retrieving Admin Credentials
 
 Use `admin` as the default username for Percona Everest. To retrieve the password, run the following command:
@@ -62,7 +52,31 @@ kubectl get secret everest-accounts -n everest-system -o jsonpath='{.data.users\
 
 This will return the password hash for the admin user.
 
-    Note: Make sure you have yq installed for processing YAML files. You can install it by following the instructions in the [official yq documentation](https://mikefarah.gitbook.io/yq).
+Example Output:
+
+```bash
+8VpkqQ3lbQXR37psjbqNtdxAbWgSjCUwFJv2Qy82vAnbRMX10zaEYOUEXcz2hmG9
+```
+
+#### Setting Up Percona Everest
+
+Once the installation is complete, you can forward the service port to access the Percona Everest User Interface (UI):
+
+```bash
+kubectl port-forward svc/everest 8080:8080 -n everest-system
+```
+
+Example Output:
+
+```bash
+Forwarding from 127.0.0.1:8080 -> 8080
+Forwarding from [::1]:8080 -> 8080
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
+```
+
+You can now access the UI in your browser by navigating to `http://localhost:8080`.
 
 #### Creating Your First Database
 
