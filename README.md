@@ -19,7 +19,7 @@ helm repo add everest-poc https://mayankshah1607.github.io/everest-helm-chart/
 2. Install the Helm chart:
 
 ```bash
-helm install everest everest/everest \
+helm install everest everest-poc/everest \
     --namespace=everest-system \
     --create-namespace \
     --version=1.1.1
