@@ -2,8 +2,6 @@
 
 This repository contains a PoC Helm chart for the [Percona Everest](https://github.com/percona/everest) project.
 
-Percona Everest is a solution designed to automate database lifecycle management for Percona-supported databases (MongoDB, PostgreSQL, and MySQL) on Kubernetes.
-
 > NOTE: This is an early-stage Proof of Concept (PoC) Helm chart. While it's still evolving and may not have full documentation or all features in place, we welcome your feedback and contributions to help improve it! Please feel free to explore, experiment, and collaborate with us as we work together to enhance its stability and functionality.
 
 ## Usage
@@ -29,7 +27,7 @@ helm install everest everest/everest \
 
 This command installs the Everest chart into the `everest-system` namespace, creating the namespace if it doesn't already exist.
 
-#### Expected Output:
+Expected Output:
 
 After a few minutes, you should see an output similar to the following:
 
