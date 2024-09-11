@@ -1,4 +1,4 @@
-Helm chart for Percona Everest
+# Helm chart for Percona Everest
 
 This repository contains a PoC Helm chart for the [Percona Everest](https://github.com/percona/everest) project.
 
