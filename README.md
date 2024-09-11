@@ -13,7 +13,7 @@ To get started with **Percona Everest** using **Helm**, follow these steps:
 1. Add the Percona Everest Helm repository:
 
 ```bash
-helm repo add everest https://mayankshah1607.github.io/everest-helm-chart/
+helm repo add everest-poc https://mayankshah1607.github.io/everest-helm-chart/
 ```
 
 2. Install the Helm chart:
