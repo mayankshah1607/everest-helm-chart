@@ -50,7 +50,7 @@ Use `admin` as the default username for Percona Everest. To retrieve the passwor
 kubectl get secret everest-accounts -n everest-system -o jsonpath='{.data.users\.yaml}' | base64 --decode  | yq '.admin.passwordHash'
 ```
 
-This will return the password hash for the admin user.
+This will return the password for the admin user.
 
 Example Output:
 
