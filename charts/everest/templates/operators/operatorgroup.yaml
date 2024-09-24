@@ -6,6 +6,6 @@ metadata:
   namespace: {{ $ns.name }}
 spec:
   targetNamespaces:
-  - $ns
+  - {{ $ns.name }}
   upgradeStrategy: Default
 {{- end }}
