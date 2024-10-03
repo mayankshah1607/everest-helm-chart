@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  everest:
+  - apiVersion: v2
+    appVersion: 0.0.0
+    created: "2024-10-03T09:40:40.72265088Z"
+    description: A cloud-native database platform
+    digest: 17d7026302ad89a79b6ba19264d7dc2d9b764e973eeb33abd8bcecc9ea7a0ad4
+    kubeVersion: '>=1.27.0-0'
+    name: everest
+    type: application
+    urls:
+    - https://github.com/mayankshah1607/everest-helm-chart/releases/download/everest-0.0.0/everest-0.0.0.tgz
+    version: 0.0.0
+generated: "2024-10-03T09:40:40.722658965Z"
