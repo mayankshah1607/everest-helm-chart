@@ -1,8 +1,0 @@
-{{- range $i, $ns := .Values.namespaces }}
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: {{ $ns.name }}
-  labels:
-    app.kubernetes.io/managed-by: everest
-{{- end }}
