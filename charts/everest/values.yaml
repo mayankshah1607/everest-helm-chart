@@ -1,0 +1,30 @@
+# Set to false to disable telemetry.
+telemetry: true
+
+# Config for Everest API server.
+server:
+  image: perconalab/everest
+
+# Config for Everest Operator
+operator:
+  image: perconalab/everest-operator
+
+# Config for OLM
+olm:
+  namespace: everest-olm
+  enabled: true
+  catalogSourceImage: perconalab/everest-catalog
+  image: quay.io/operator-framework/olm@sha256:1b6002156f568d722c29138575733591037c24b4bfabc67946f268ce4752c3e6 
+
+# Config for Everest Monitoring
+monitoring:
+  namespace: everest-monitoring
+  enabled: true
+
+# DB Namespaces to be installed.
+# Cannot be nil or empty.
+dbNamespaces:
+  - name: everest
+    psmdb: true
+    pxc: true
+    pg: true
