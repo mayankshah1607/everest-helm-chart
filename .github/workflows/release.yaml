@@ -28,10 +28,10 @@ jobs:
         with:
           skip_existing: true
 
-      - name: Publish Everest namespaces subchart
+      - name: Publish Everest subcharts
         uses: helm/chart-releaser-action@v1.6.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
-          charts_dir: charts/everest/charts/everest-db-namespace
+          charts_dir: charts/everest/charts
           skip_existing: true
