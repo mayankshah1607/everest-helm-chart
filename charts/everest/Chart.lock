@@ -3,7 +3,7 @@ dependencies:
   repository: file://charts/common
   version: 0.0.1
 - name: everest-db-namespace
-  repository: file://charts/db-namespace
+  repository: file://charts/everest-db-namespace
   version: 0.0.1
-digest: sha256:8aab8c586acbeeb31318812b679322bc223ad30f5d39602be303dbf3958c5c8f
-generated: "2024-10-05T22:25:25.378847+05:30"
+digest: sha256:01785bdb97ac41f92ab6f248427b8c755f3cefffb80d06a9931ef92c72e56ebd
+generated: "2024-10-05T22:26:55.367627+05:30"

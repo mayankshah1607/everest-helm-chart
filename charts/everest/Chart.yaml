@@ -12,5 +12,5 @@ dependencies:
   repository: "file://charts/common"
 - name: everest-db-namespace
   version: 0.0.1
-  repository: "file://charts/db-namespace"
+  repository: "file://charts/everest-db-namespace"
   condition: dbNamespace.enabled

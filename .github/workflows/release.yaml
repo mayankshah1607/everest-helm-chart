@@ -33,5 +33,5 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
-          chart_path: charts/everest/charts/db-namespaces
+          chart_path: charts/everest/charts/everest-db-namespace
           skip_existing: true
