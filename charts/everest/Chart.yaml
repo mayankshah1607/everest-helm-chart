@@ -9,8 +9,8 @@ kubeVersion: ">=1.27.0-0"
 dependencies:
 - name: common
   version: 0.0.1
-  repository: "file://charts/"
+  repository: "file://charts/common"
 - name: db-namespace
   version: 0.0.1
-  repository: "file://charts/"
+  repository: "file://charts/db-namespace"
   condition: dbNamespace.enabled

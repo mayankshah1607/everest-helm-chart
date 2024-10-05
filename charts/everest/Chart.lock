@@ -1,0 +1,9 @@
+dependencies:
+- name: common
+  repository: file://charts/common
+  version: 0.0.1
+- name: db-namespace
+  repository: file://charts/db-namespace
+  version: 0.0.1
+digest: sha256:1aa0a192fb6a9187ec32ff6ad22420e3049c96125e2acfd8cda6e7fb1423506c
+generated: "2024-10-05T15:23:47.837605+05:30"
