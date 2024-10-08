@@ -10,7 +10,3 @@ dependencies:
 - name: common
   version: 0.0.1
   repository: "file://charts/common"
-- name: everest-db-namespace
-  version: 0.0.1
-  repository: "file://charts/everest-db-namespace"
-  condition: dbNamespace.enabled
