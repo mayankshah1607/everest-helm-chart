@@ -16,4 +16,19 @@ entries:
     urls:
     - https://github.com/mayankshah1607/everest-helm-chart/releases/download/everest-0.0.0/everest-0.0.0.tgz
     version: 0.0.0
-generated: "2024-10-08T05:23:09.621960116Z"
+  everest-db-namespace:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-10-08T05:23:11.83523468Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: 0.0.1
+    description: A sub-chart for provisioning Everest DB namespaces.
+    digest: 06a3a67a76181843bbd3bd4f40ec15f4eeb255b8e39d56193c4d57d2c5546d04
+    name: everest-db-namespace
+    type: application
+    urls:
+    - https://github.com/mayankshah1607/everest-helm-chart/releases/download/everest-db-namespace-0.0.1/everest-db-namespace-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-10-08T05:23:11.835244629Z"
