@@ -1,8 +1,8 @@
 #
-# @param .namespace     The namespace where the operator is installed
+# @param .namespace     The namespace where DB and its resources are deployed
 #
-{{- define "everest.csvCleanup" }}
-{{- $hookName := printf "everest-helm-pre-delete-hook" }}
+{{- define "everest.dbResourcesCleanup" }}
+{{- $hookName := printf "everest-helm-pre-delete-db-resource-cleanup" }}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -20,9 +20,11 @@ metadata:
     "helm.sh/hook-delete-policy": hook-succeeded
 rules:
   - apiGroups:
-      - operators.coreos.com
+      - everest.percona.com
     resources:
-      - clusterserviceversions
+      - databaseclusters
+      - backupstorages
+      - monitoringconfigs
     verbs:
       - delete
       - list
@@ -61,7 +63,14 @@ spec:
             - /bin/sh
             - -c
             - |
-              kubectl delete csv -n {{ .namespace }} --all --wait
+              echo "Deleting DatabaseClusters"
+              kubectl delete databaseclusters -n {{ .namespace }} --all --wait
+              
+              echo "Deleting BackupStorages"
+              kubectl delete backupstorages -n {{ .namespace }} --all --wait
+                
+              echo "Deleting MonitoringConfigs"
+              kubectl delete monitoringconfigs -n {{ .namespace }} --all --wait
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
       serviceAccount: {{ $hookName }}
@@ -69,3 +78,4 @@ spec:
       terminationGracePeriodSeconds: 30
 ---
 {{- end }}
+

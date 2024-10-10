@@ -63,25 +63,15 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
       - args:
-        - --health-probe-bind-address=:8081
-        - --metrics-bind-address=127.0.0.1:8080
+        - --health-probe-bind-address={{ .Values.operator.healthProbeAddr }}
+        - --metrics-bind-address={{ .Values.operator.metricsAddr }}
+        {{- if .Values.operator.enableLeaderElection }}
         - --leader-elect
+        {{- end }}
+        - --monitoring-namespace={{ .Values.monitoring.namespace }}
+        - --system-namespace={{ include  "everest.namespace" . }}
         command:
         - /manager
-        env:
-        - name: SYSTEM_NAMESPACE
-          valueFrom:
-            fieldRef:
-              apiVersion: v1
-              fieldPath: metadata.namespace
-        - name: DISABLE_TELEMETRY
-          {{- if .Values.telemetry }}
-          value: "true"
-          {{- end }}
-        - name: MONITORING_NAMESPACE
-          value: {{ .Values.monitoring.namespace }}
-        - name: DB_NAMESPACES
-          value: everest #TODO
         image: {{ .Values.operator.image }}:{{ .Chart.Version }}
         imagePullPolicy: IfNotPresent
         livenessProbe:
@@ -105,13 +95,12 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-        resources:
-          limits:
-            cpu: 500m
-            memory: 128Mi
-          requests:
-            cpu: 10m
-            memory: 64Mi
+        resources: {{ toYaml .Values.operator.resources | nindent 10 }}
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
@@ -124,6 +113,6 @@ spec:
       schedulerName: default-scheduler
       securityContext:
         runAsNonRoot: true
-      serviceAccount: everest-operator
-      serviceAccountName: everest-operator
+      serviceAccount: everest-operator-controller-manager
+      serviceAccountName: everest-operator-controller-manager
       terminationGracePeriodSeconds: 10
