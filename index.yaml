@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  common:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-10-25T07:39:06.32619689Z"
+    description: A library chart for Everest containing common resources.
+    digest: 84f26abccc48b40252445493c9fb59c763c8765e6ea332f7f1026f4c25366250
+    name: common
+    type: library
+    urls:
+    - https://github.com/mayankshah1607/everest-helm-chart/releases/download/common-0.0.1/common-0.0.1.tgz
+    version: 0.0.1
   everest:
   - apiVersion: v2
     appVersion: 0.0.0
@@ -29,4 +40,19 @@ entries:
     urls:
     - https://github.com/mayankshah1607/everest-helm-chart/releases/download/everest-0.0.0/everest-0.0.0.tgz
     version: 0.0.0
-generated: "2024-10-25T07:39:02.206747579Z"
+  everest-db-namespace:
+  - apiVersion: v2
+    appVersion: 0.0.0
+    created: "2024-10-25T07:39:06.464233078Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: 0.0.1
+    description: A sub-chart for provisioning Everest DB namespaces.
+    digest: b9761f15cd82874630bb671ebf0666d40fcc2f016af3d5b488dd41230c699500
+    name: everest-db-namespace
+    type: application
+    urls:
+    - https://github.com/mayankshah1607/everest-helm-chart/releases/download/everest-db-namespace-0.0.0/everest-db-namespace-0.0.0.tgz
+    version: 0.0.0
+generated: "2024-10-25T07:39:06.464244078Z"
