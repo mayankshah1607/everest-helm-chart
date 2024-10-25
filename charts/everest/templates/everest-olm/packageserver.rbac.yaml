@@ -43,4 +43,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: olm-operator-serviceaccount
-  namespace: {{ .Values.olm.namespace }}
+  namespace: {{ include "everest.olmNamespace" . }}

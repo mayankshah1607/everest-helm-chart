@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalog-operator
-  namespace: {{ .Values.olm.namespace }}
+  namespace: {{ include "everest.olmNamespace" . }}
   labels:
     app: catalog-operator
 spec:

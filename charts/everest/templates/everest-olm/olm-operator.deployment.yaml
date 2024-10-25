@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: olm-operator
-  namespace: {{ .Values.olm.namespace }}
+  namespace: {{ include "everest.olmNamespace" . }}
   labels:
     app: olm-operator
 spec:

@@ -6,6 +6,10 @@ Useful links:
 - [Percona Everest Documentation](https://docs.percona.com/everest/index.html)
 - [Percona Everest GitHub](https://github.com/percona/everest)
 
+> :warning: Note: This chart is currently in technical preview.
+Future releases could potentially introduce breaking changes, and we cannot promise a migration path. We do not recommend using this in production environment,
+but if you do so, please be aware of the risks.
+
 ## Usage
 
 ### Deploy Percona Everest
@@ -37,6 +41,20 @@ metadata:
     app.kubernetes.io/managed-by: everest
 EOF
 helm install everest percona/everest-db-namespace --namespace everest
+```
+
+### Uninstalling
+
+As a first step, you must always clean up your database namespace(s) first, otherwise the deletion could get stuck.
+```sh
+helm uninstall everest -n everest
+kubectl delete ns everest
+```
+
+Then you can uninstall Everest itself:
+```sh
+helm uninstall everest-core -n everest-system
+kubectl delete ns everest-system
 ```
 
 ## Configuration

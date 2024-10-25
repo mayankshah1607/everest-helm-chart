@@ -6,6 +6,10 @@ Useful links:
 - [Percona Everest Documentation](https://docs.percona.com/everest/index.html)
 - [Percona Everest GitHub](https://github.com/percona/everest)
 
+> :warning: Note: This chart is currently in technical preview.
+Future releases could potentially introduce breaking changes, and we cannot promise a migration path. We do not recommend using this in production environment,
+but if you do so, please be aware of the risks.
+
 ## Usage
 
 ### Deploy Percona Everest
@@ -39,6 +43,20 @@ EOF
 helm install everest percona/everest-db-namespace --namespace everest
 ```
 
+### Uninstalling
+
+As a first step, you must always clean up your database namespace(s) first, otherwise the deletion could get stuck.
+```sh
+helm uninstall everest -n everest
+kubectl delete ns everest
+```
+
+Then you can uninstall Everest itself:
+```sh
+helm uninstall everest-core -n everest-system
+kubectl delete ns everest-system
+```
+
 ## Configuration
 
 The following table shows the configurable parameters of the Percona Everest chart and their default values.
@@ -46,11 +64,9 @@ The following table shows the configurable parameters of the Percona Everest cha
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | everest-db-namespace.enabled | bool | `false` | Do not enable. |
-| monitoring.enabled | bool | `true` | Enable monitoring for Everest. |
 | monitoring.namespace | string | `"everest-monitoring"` | Namespace where monitoring is installed. Do no change unless you know what you are doing. |
 | namespaceOverride | string | `""` | Namespace override. Defaults to the value of .Release.Namespace. |
 | olm.catalogSourceImage | string | `"perconalab/everest-catalog"` | Image to use for Everest CatalogSource. |
-| olm.enabled | bool | `true` | Enable OLM for Everest. |
 | olm.image | string | `"quay.io/operator-framework/olm@sha256:1b6002156f568d722c29138575733591037c24b4bfabc67946f268ce4752c3e6"` | Image to use for the OLM components. |
 | olm.namespace | string | `"everest-olm"` | Namespace where OLM is installed. Do no change unless you know what you are doing. |
 | olm.packageserver.tls.caCert | string | `""` | CA certificate for the PackageServer APIService. Overrides the tls.type setting. |
@@ -63,6 +79,7 @@ The following table shows the configurable parameters of the Percona Everest cha
 | operator.metricsAddr | string | `"127.0.0.1:8080"` | Metrics address for the operator. |
 | operator.resources | object | `{"limits":{"cpu":"500m","memory":"128Mi"},"requests":{"cpu":"5m","memory":"64Mi"}}` | Resources to allocate for the operator container. |
 | server.image | string | `"perconalab/everest"` | Image to use for the server container. |
+| server.oidc | object | `{}` | OIDC configuration for Everest. |
 | server.rbac | string | `"g, admin, role:admin\n"` | RBAC policy for Everest. |
 | server.resources | object | `{"limits":{"cpu":"200m","memory":"500Mi"},"requests":{"cpu":"100m","memory":"20Mi"}}` | Resources to allocate for the server container. |
 | telemetry | bool | `true` | If set, enabled sending telemetry information. |

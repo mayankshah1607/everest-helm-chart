@@ -8,5 +8,5 @@ roleRef:
   name: system:controller:operator-lifecycle-manager
 subjects:
 - kind: ServiceAccount
+  namespace: {{ include "everest.olmNamespace" . }}
   name: olm-operator-serviceaccount
-  namespace: {{ .Values.olm.namespace }}

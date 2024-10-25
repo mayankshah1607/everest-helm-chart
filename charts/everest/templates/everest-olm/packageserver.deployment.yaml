@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: packageserver
-  namespace: {{ .Values.olm.namespace }}
+  namespace: {{ include "everest.olmNamespace" . }}
 spec:
   progressDeadlineSeconds: 600
   replicas: 2
