@@ -12,12 +12,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           repository: "mayankshah1607/everest-helm-chart"
-
-      - name: Skip charts
-        run: |
-          rm -rf charts/pmm
+          sparse-checkout: |
+            !charts/everest
 
       - name: Configure Git
         run: |
