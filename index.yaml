@@ -13,6 +13,34 @@ entries:
     version: 0.0.1
   everest:
   - apiVersion: v2
+    appVersion: 1.3.0-rc2
+    created: "2024-10-29T10:26:16.384811686Z"
+    dependencies:
+    - name: common
+      repository: file://charts/common
+      version: 0.0.1
+    - condition: everest-db-namespace.enabled
+      name: everest-db-namespace
+      repository: file://charts/everest-db-namespace
+      version: 1.3.0-rc2
+    description: A cloud-native database platform
+    digest: 853dbb67b1c3f3cdec14c5478e9fc2cc977003d521b91d330a61f0739a9c261d
+    kubeVersion: '>= 1.27.0'
+    maintainers:
+    - email: mayank.shah@percona.com
+      name: mayankshah1607
+    - email: oksana.grishchenko@percona.com
+      name: oksana-grishchenko
+    - email: diogo.recharte@percona.com
+      name: recharte
+    - email: michal.kralik@percona.com
+      name: michal-kralik
+    name: everest
+    type: application
+    urls:
+    - https://github.com/mayankshah1607/everest-helm-chart/releases/download/everest-1.3.0-rc2/everest-1.3.0-rc2.tgz
+    version: 1.3.0-rc2
+  - apiVersion: v2
     appVersion: 0.0.0
     created: "2024-10-25T07:39:02.206733733Z"
     dependencies:
@@ -55,4 +83,4 @@ entries:
     urls:
     - https://github.com/mayankshah1607/everest-helm-chart/releases/download/everest-db-namespace-0.0.0/everest-db-namespace-0.0.0.tgz
     version: 0.0.0
-generated: "2024-10-25T07:39:06.464244078Z"
+generated: "2024-10-29T10:26:16.384823358Z"
