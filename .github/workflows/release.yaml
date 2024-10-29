@@ -19,22 +19,22 @@ jobs:
       - name: list files
         run: ls charts/
 
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      # - name: Configure Git
+      #   run: |
+      #     git config user.name "$GITHUB_ACTOR"
+      #     git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Publish Everest chart
-        uses: helm/chart-releaser-action@v1.6.0
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        with:
-          skip_existing: true
+      # - name: Publish Everest chart
+      #   uses: helm/chart-releaser-action@v1.6.0
+      #   env:
+      #     CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      #   with:
+      #     skip_existing: true
 
-      - name: Publish Everest subcharts
-        uses: helm/chart-releaser-action@v1.6.0
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        with:
-          charts_dir: charts/everest/charts
-          skip_existing: true
+      # - name: Publish Everest subcharts
+      #   uses: helm/chart-releaser-action@v1.6.0
+      #   env:
+      #     CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      #   with:
+      #     charts_dir: charts/everest/charts
+      #     skip_existing: true
