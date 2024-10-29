@@ -55,7 +55,8 @@ jobs:
       - name: Run sub-chartr
         uses: helm/chart-releaser-action@v1.6.0
         with:
-          chart: charts/everest/charts
+          charts_dir: charts/everest/charts
+          skip_existing: true
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
