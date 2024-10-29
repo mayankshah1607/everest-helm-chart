@@ -1,3 +1,5 @@
+> DEPRACATION NOTICE: This repo is being archived since an officially supported Helm chart is being developed [here](https://github.com/percona/percona-helm-charts/tree/main/charts/everest). 
+
 # Helm chart for Percona Everest
 
 This repository contains a PoC Helm chart for the [Percona Everest](https://github.com/percona/everest) project.
