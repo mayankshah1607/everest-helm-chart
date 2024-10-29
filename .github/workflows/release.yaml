@@ -35,12 +35,14 @@ jobs:
         run: |
           cd charts/everest
           make release-dev
+          helm dependency update
 
       - name: Prepare release
         if: ${{ env.IS_RC == '0' }}
         run: |
           cd charts/everest
           make release
+          helm dependency update
 
       - name: Install Helm
         uses: azure/setup-helm@v1
